@@ -1,0 +1,91 @@
+// MEZCLA
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+#define MAX 100
+
+using namespace std;
+
+void cargarvector(int a[],int tam);
+void mostrarvector(int d[],int tam);
+void mezclar(int T[],int n,int m[],int p, int q[],int &z);
+
+int main()
+{
+	int clave;
+	int  z;
+	int T[MAX],m[MAX],q[MAX],n,p;
+
+	do{
+		cout<<"Ingresar el valor: ";
+		cin>>n;
+		
+	} while 
+		((n<=0)||(n>MAX));
+	do{
+	cout<<"Ingresar el valor: ";
+	cin>>p;
+	} while 
+		((p<=0)||(p>MAX));
+	
+	cargarvector(T,n);
+	cargarvector(m,p);
+	mezclar(T,n,m,p,q,z);
+	mostrarvector(q,z);
+	mostrarvector(T,n);
+getch ();
+}
+
+
+void cargarvector(int a[],int tam)
+{
+	for (int i=0;i<tam;i++)
+	{
+		cout<<"Ingresar a["<<i<<"]";
+		cin>>a[i];
+	}
+}
+
+void mostrarvector(int d[],int tam)
+{	
+	for (int i=0;i<tam;i++)
+	{
+		cout<<"d["<<i<<"]"<<d[i]<<endl;
+	
+	}
+}
+
+void mezclar(int T[],int n,int m[],int p, int q[],int &z)
+{
+	int i=0;
+	int j=0;
+	int k=0;
+
+    while ((i<n)&&(j<p))
+		{
+			if(T[i]< m[j])
+			{
+			  q[k]=T[i];
+	          i++;
+		    }
+		    else
+			{
+				q[k]=m[j];
+	            j++;
+			}
+			k++;
+	   }
+	while (i<n)
+	{ q[k]=T[i];
+	  i++; 
+	  k++;
+	}
+	while (j<p)
+	{ q[k]=m[j];
+	  j++; 
+	  k++;
+	}
+	z=k;
+}
