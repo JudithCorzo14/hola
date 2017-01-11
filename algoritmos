@@ -1,0 +1,54 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+int contarDigitos(int n)
+{
+	int c = 0;
+	while(n > 0)
+	{
+		n = n /10;
+		c++;
+	}
+return (c);
+}
+
+int contarDigitosImpares(int n)
+{
+	int c=0, d;
+	while(n > 0)
+	{d=n % 10;
+	if(d % 2 != 0)
+	{
+		c++;
+	}
+	n = n /10;
+	}
+	return (c);
+}
+
+void main()
+{
+	int nro,r,opcion;
+	cout << "introducir el numero natural: ";
+	cin >> nro;
+	do{
+		cout << "\n\n\t\t***** M E N U *****";
+		cout << "\n\t1.- contar digitos";
+		cout << "\n\t2.- contar digitos impares";
+		cout << "\n\t0.- salir";
+		cout << "\n\t1.- seleccione opcion";
+		cin >> opcion;
+		switch(opcion)
+		{
+		case 1 : r = contarDigitos(nro);
+			cout << "\nLa cantidad de digitos de: "<<nro<<", es --->>> : " << r;
+			break;
+		case 2 : r = contarDigitosImpares(nro);
+			cout << "\nLa cantidad de digitos IMPARES de: "<<nro<<", es --->>> : " << r;
+			break;
+		}
+	}
+	while(opcion != 0);
+}
