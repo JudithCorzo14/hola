@@ -1,0 +1,168 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+int contarDigitos(int n)
+{
+	int c = 0;
+	while(n > 0)
+	{
+		n = n /10;
+		c++;
+	}
+return (c);
+}
+
+
+int contarDigitosImpares(int n)
+{
+	int c=0, d;
+	while(n > 0)
+	{d=n % 10;
+	if(d % 2 != 0)
+	{
+		c++;
+	}
+	n = n /10;
+	}
+	return (c);
+}
+
+
+
+// realizar fumcion que verifique q digitos son primos dentro de un numero natural
+
+bool verifSiEsPrimo(int n)
+{
+int i;
+bool k = true;
+for(i=2; i<n ; i++)
+{
+	if(n % i == 0)
+	{
+		k = false;
+		i =n;
+	}
+} 
+return (k);
+}
+
+
+//invierte el numero
+int invertir(int n)
+{
+	int d,newNro = 0;
+	while(n > 0)
+	{
+		d = n % 10;
+		newNro = newNro*10 + d;
+		n = n /10;
+	}
+return (newNro);
+}
+
+//elimina los digitos primos de un numero
+int eliminarDigitosPrimos(int n)
+{
+	int d,newNro = 0;
+	while(n > 0)
+	{
+		d = n % 10;
+		if(verificarSiEsPrimo(d) == false
+		{
+		newNro = newNro*10 + d;
+		}
+		n = n /10;
+	}
+return (invertir(newNro));
+}
+
+//enumera la posicion del numero primo el n-esimo
+int nesimoPrimo(int n)
+{
+	int c=0, cp=0;
+	while(cp < n)
+	{
+		c++;
+		if(verifSiEsPrimo(c) == true)
+		{
+			cp++;
+		}
+	}
+return (c);
+}
+
+
+//concatenar 2 numeros en uno solo
+int concatenar(int a, int b)
+{
+return (a* pow(10,contarDigitos(b)) +b);
+
+//verificar si es capicua o palidremo
+bool verifSiEsCapicua(int n)
+{
+if(n == invertir (n))
+	return(true);
+else
+	return(false);
+}
+
+
+
+void main()
+{
+	int nro,r,opcion,nro2;
+	int nro,r,opcion
+	cout << "introducir el numero natural: ";
+	cin >> nro;
+	do{
+		cout << "\n\n\t\t***** M E N U *****";
+		cout << "\n\t1.- contar digitos";
+		cout << "\n\t2.- contar digitos impares";
+		cout << "\n\t3.- verificar si un numero es primo";
+		cout << "\n\t4.- invertir";
+		cout << "\n\t5.- eliminar numero primo";
+		cout << "\n\t6.- obtener el n.esimo numero primo";
+		cout << "\n\t7.- concatenar dos numeros";
+		cout << "\n\t8.- verificar si es capicua";
+		cout << "\n\t0.- salir";
+		cout << "\n\tseleccione opcion";
+		cin >> opcion;
+		switch(opcion)
+		{
+		case 1 : r = contarDigitos(nro);
+			cout << "\nLa cantidad de digitos de: "<<nro<<", es --->>> : " << r;
+			break;
+		case 2 : r = contarDigitosImpares(nro);
+			cout << "\nLa cantidad de digitos IMPARES de: "<<nro<<", es --->>> : " << r;
+			break;
+		case 3 : if(verifSiEsPrimo(nro) == true)
+			cout << "\nEl numero: "<<nro<<", Si es Primo.;
+				 else
+				 cout << "\nEl numero: "<<nro<<", No es Primo.;
+			break;
+		case 4 : r = invertir(nro);
+			cout << "\nEl numero invertido de: "<<nro<<", es --->>> : " << r;
+			break;
+		case 5 : r = eliminarDigitosPrimos(nro);
+			cout << "\nEl numero: "<<nro<<", sin digitos primos --->>> : " << r;
+			break;
+		case 6 : r = nesimoPrimo(nro);
+			cout << "\nEl : "<<nro<<", numero primo es --->>> : " << r;
+			break;
+		case 7 : cout << "Introducir un segundo numero natural : ";
+					 cin  >> nro2;
+					 r = concatenar(nro,nro2);
+					 cout << "\nEl resultado es --->>> : " << r;
+					 break;
+			case 8 : if(verifSiEsCapicua(nro) == true)
+						cout << "\nEl numero : "<<nro<<", SI es capicua.";
+					 else
+						cout << "\nEl numero : "<<nro<<", NO es capicua.";
+					 break;
+		}
+	}
+	while(opcion != 0);
+}
+	el numero primo
